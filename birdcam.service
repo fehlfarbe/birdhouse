@@ -1,0 +1,12 @@
+[Unit]
+Description=Birdcam
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+User=pi
+ExecStart=/usr/bin/python3 /home/pi/birdhouse/birdcam.py
+
+[Install]
+WantedBy=multi-user.target

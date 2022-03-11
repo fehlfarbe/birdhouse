@@ -1,0 +1,13 @@
+[Unit]
+Description=Birdcam
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+User=pi
+WorkingDirectory=/home/pi/birdhouse/
+ExecStart=/usr/bin/gunicorn --threads 5 --workers 1 --bind 0.0.0.0:5000 main:app
+
+[Install]
+WantedBy=multi-user.target
